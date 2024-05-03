@@ -1,6 +1,6 @@
 ﻿namespace CleanArchMvc.Domain.Validation
 {
-    internal class DomainExceptionValidation : Exception
+    public class DomainExceptionValidation : Exception
     {
         public DomainExceptionValidation(string message) : base(message) { }
 
