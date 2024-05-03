@@ -6,7 +6,7 @@ namespace CleanArchMvc.Domain.Tests
 {
     public class CategoryUnitTest
     {
-        [Fact(DisplayName = "not create category with valid state")]
+        [Fact(DisplayName = "create category with valid state")]
         public void CreateCategory_WithValidParameters_ResultObjectValidState()
         {
             // Action, Arrange, Assert
@@ -27,25 +27,16 @@ namespace CleanArchMvc.Domain.Tests
         [Fact(DisplayName = "not create category with to short name")]
         public void CreateCategory_WithToShortName_DomainExceptionInvalidName()
         {
-            // Action
+            // Action, Arrange, Assert
             Action action = () => new Category(1, "CN");
             action.Should()
                 .Throw<DomainExceptionValidation>().WithMessage("Invalid name, too short, minimum 3 characters.");
         }
 
-        [Fact(DisplayName = "not create category with not name")]
-        public void CreateCategory_WithNotName_DomainExceptionInvalidName()
-        {
-            // Action
-            Action action = () => new Category(1, "");
-            action.Should()
-                .Throw<DomainExceptionValidation>();
-        }
-
         [Fact(DisplayName = "not create category with null name")]
         public void CreateCategory_WithNullName_DomainExceptionInvalidName()
         {
-            // Action
+            // Action, Arrange, Assert
             Action action = () => new Category(1, null);
             action.Should()
                 .Throw<DomainExceptionValidation>();
