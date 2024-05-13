@@ -32,7 +32,7 @@ namespace CleanArchMvc.Application.Services
 
         public async Task<ProductDTO> GetWithCategoryByIdAsync(int? id)
         {
-            var productEntity = _productRepository.GetWithCategoryByIdAsync(id);
+            var productEntity = await _productRepository.GetWithCategoryByIdAsync(id);
             return _mapper.Map<ProductDTO>(productEntity);
         }
 
