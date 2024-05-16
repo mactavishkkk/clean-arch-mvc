@@ -20,12 +20,6 @@ namespace CleanArchMvc.WebUI.Controllers
             return View(categories);
         }
 
-        [HttpGet]
-        public IActionResult Create()
-        {
-            return View();
-        }
-
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null) return NotFound();
@@ -35,6 +29,12 @@ namespace CleanArchMvc.WebUI.Controllers
             if(categoryDTO == null) return NotFound();
 
             return View(categoryDTO);
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
         }
 
         [HttpPost]
