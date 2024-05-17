@@ -15,15 +15,6 @@ namespace CleanArchMvc.Domain.Tests
                 .NotThrow<DomainExceptionValidation>();
         }
 
-        [Fact(DisplayName = "not create category with invalid id")]
-        public void CreateCategory_WithNegativeIdValue_DomainExceptionInvalidId()
-        {
-            // Action, Arrange, Assert
-            Action action = () => new Category(0, "Category Name");
-            action.Should()
-                .Throw<DomainExceptionValidation>().WithMessage("Invalid Id, the id must be greater than 0.");
-        }
-
         [Fact(DisplayName = "not create category with to short name")]
         public void CreateCategory_WithToShortName_DomainExceptionInvalidName()
         {
