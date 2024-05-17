@@ -15,21 +15,13 @@ namespace CleanArchMvc.Domain.Entities
 
         public Category(int id, string name)
         {
-            ValidateIdAssign(id);
+            Id = id;
             ValidateNameAssign(name);
         }
 
         public void Update(string name)
         {
             ValidateNameAssign(name);
-        }
-
-        private void ValidateIdAssign(int id)
-        {
-            DomainExceptionValidation.When(id <= 0,
-                "Invalid Id, the id must be greater than 0.");
-
-            Id = id;
         }
 
         private void ValidateNameAssign(string name)
